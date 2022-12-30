@@ -15,7 +15,8 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app)
 export const auth = getAuth(app)
 export const chatsRef = ref(db, `chats`);
-export let creteUser = (email: string, password: string) => {
+export const feedbackRef = ref(db, `feedback`);
+export const creteUser = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
@@ -23,14 +24,12 @@ export let creteUser = (email: string, password: string) => {
 
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage);
+            console.log(error.message);
 
         });
 }
 
-export let update = (userName: string, photo = "") => {
+export const update = (userName: string, photo = "") => {
     if (photo == "")
         updateProfile(auth.currentUser!, { displayName: userName }).then(() => {
         }).catch((err) => {

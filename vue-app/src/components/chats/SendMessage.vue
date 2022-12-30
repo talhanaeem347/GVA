@@ -7,7 +7,7 @@ import { ref } from "vue";
 const store = useStore();
 let textarea = ref<HTMLInputElement>();
 let message = ref<string>("");
-let newLine = (e: KeyboardEvent) => (message.value += "\n");
+let newLine = () => (message.value += "\n");
 let send = () => {
   if (message.value) {
     const newChatRef = push(chatsRef);

@@ -1,6 +1,5 @@
-import { getExperimentalSetting } from '@firebase/util'
 import { defineStore } from 'pinia'
-export interface user {
+export interface userInterface {
     userId: string,
     userName: string,
     email: string,
@@ -20,7 +19,7 @@ export default defineStore("mainStore", {
         isLoginModalOpen: false,
     }),
     actions: {
-        setUser(user:user) { this.user = user },
+        setUser(user:userInterface) { this.user = user },
         logedIn() { this.isLogedIn = true },
         logedOut() { this.isLogedIn = false },
         openLoginModal() { this.isLoginModalOpen = true },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useStore, { user } from "@/store/pinia";
+import useStore from "@/store/pinia";
 import { ref } from "vue";
 import { update } from "@/utilites/firebase/firbase";
 

@@ -1,18 +1,21 @@
 import { createRouter, createWebHistory } from "vue-router";
-
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      name: "home",
       path: "/",
-      component: () => import("@/views/Home.vue"),
+      name: "home",
+      component: () => import("@/views/HomeView.vue"),
     },
-    
     {
       name: "calculator",
       path: "/calculator",
-      component: () => import("@/views/Calculator.vue"),
+      component: () => import("@/views/CalculatorView.vue"),
+    },
+    {
+      name: "marked",
+      path: "/marke-down",
+      component: () => import("@/views/MarkeDown.vue"),
     },
     {
       name: "modal",
@@ -22,14 +25,18 @@ const router = createRouter({
     {
       name: "chat",
       path: "/chat",
-      component: () => import("@/views/Chat.vue"),
+      component: () => import("@/views/ChatView.vue"),
     },
     {
       name: "profile",
       path: "/profile",
-      component: () => import("@/views/Profile.vue"),
+      component: () => import("@/views/UserProfile.vue"),
+    },
+    {
+      name: "feed-back",
+      path: "/feed-back",
+      component: () => import("@/views/FeedBack.vue"),
     },
   ],
 });
 
-export default router;
