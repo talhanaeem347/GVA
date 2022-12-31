@@ -2,19 +2,18 @@
 import { ref, computed } from "vue";
 import marked from "@/utilites/other/markeLibrary";
 let textarea = ref();
-let text = ref("");
+let text = ref("**bold**");
 let markedText = computed(() => marked(text.value));
 const vMyDirective = {
   mounted: () => {
-    console.log(markedText.value);
     textarea.value.focus();
   },
 };
 </script>
 <template>
-  <div v-my-directive class="w-full h-full">
-    <h1 class="w-full text-center text-xl font-bold py-2">Marke Down App</h1>
-    <div class="flex w-full h-full text-xl">
+  <div v-my-directive class="w-full h-full  px-2">
+    <h1 class="w-full text-center text-3xl font-bold py-2">Marke Down</h1>
+    <div class="flex w-2/3 mx-auto  h-2/3 border-8 text-xl ">
       <div class="w-1/2 h-full border">
         <textarea
           v-model="text"
@@ -23,7 +22,7 @@ const vMyDirective = {
         ></textarea>
       </div>
       <div
-        class="w-1/2 h-full p-3"
+        class="w-1/2 h-full p-3 border border-black rounded"
         :class="text ? 'bg-violet-100' : ''"
         v-html="markedText"
       ></div>

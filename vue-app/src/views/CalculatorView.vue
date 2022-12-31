@@ -23,10 +23,11 @@ const list = [
   "=",
 ];
 let cruntNum = ref("");
-let prevNum = ref(0);
+let prevNum = ref<string>("0");
 let operation = ref("");
 let on = ref<boolean>();
 let div = ref<HTMLElement>();
+let count = ref(1);
 // methods:
 let findKey = (key: string) => {
   if (key === "On" || key === " ") powerOn();
@@ -42,19 +43,24 @@ let powerOff = () => {
   on.value = false;
   clearAll();
 };
-let powerOn = () => (on.value = true);
+let powerOn = () => {
+  clearAll();
+  on.value = true;
+};
 let setOperation = (operater: string) => {
-  prevNum.value === 0
-    ? (prevNum.value = +cruntNum.value)
+  prevNum.value === ""
+    ? (prevNum.value = cruntNum.value)
     : applayoperatioin(operation.value);
   clear();
   operation.value = operater;
 };
 let applayoperatioin = (operator: string) => {
-  if (operator === "+") prevNum.value += +cruntNum.value;
-  else if (operator === "-") prevNum.value -= +cruntNum.value;
-  else if (operator === "*") prevNum.value *= +cruntNum.value;
-  if (operator === "/") prevNum.value /= +cruntNum.value;
+  let prev = parseInt(prevNum.value);
+  if (operator === "+") prev += +cruntNum.value;
+  else if (operator === "-") prev -= +cruntNum.value;
+  else if (operator === "*") prev *= +cruntNum.value;
+  else if (operator === "/") prev /= +cruntNum.value;
+  prevNum.value = String(prev);
   clear();
 };
 let clear = () => {
@@ -63,13 +69,18 @@ let clear = () => {
 };
 let clearAll = () => {
   clear();
-  prevNum.value = 0;
+  prevNum.value = "0";
+  count.value = 1;
 };
-let pressed = (value: string) => (cruntNum.value += value);
+let pressed = (value: string) => {
+  if (count.value == 1) prevNum.value = "";
+  count.value++;
+  cruntNum.value += value;
+};
 let calculate = () => {
   applayoperatioin(operation.value);
   cruntNum.value = String(prevNum.value);
-  prevNum.value = 0;
+  prevNum.value = "";
 };
 let action = (key: string) => {
   let btns = div.value?.children;
@@ -144,19 +155,27 @@ const vMyDirective = {
 </script>
 <template>
   <section v-my-directive class="flex w-full">
-    <div class="mx-auto lg:w-1/2 md:w-1/2  w-full flex justify-center">
-      <div class="w-full flex flex-col justify-center ">
-        <h1 class="text-xl text-center font-bold w-full mb-8">Calculator</h1>
-        <div class="mx-auto ">
-          <small :class="on ? ' visible' : 'invisible'"
-          class="pl-2"
-            >{{ prevNum }} {{ operation }}</small
-          >
+    <div class="mx-auto lg:w-1/2 md:w-1/2 w-full flex justify-center">
+      <div class="w-full flex flex-col justify-center  mt-8 pb-8">
+        <h1 class="text-3xl text-center font-bold w-full mt-4 mb-6">
+          Calculator
+        </h1>
+        <div class="mx-auto p-5 bg-teal-600">
+          <div>
+            <div class="flex justify-end pb-2 px-2">
+              <div class="bg-gray-500">
+                <span class="border border-black px-2"></span>
+                <span class="border border-black px-2"></span>
+                <span class="border border-black px-2"></span>
+                <span class="border border-black px-2"></span>
+              </div>
+            </div>
+          </div>
           <h1
             v-if="on"
             class="text-xl text-end font-bold border w-80 h-10 mb-4 bg-gray-100 px-2 py-1 overflow-x-auto"
           >
-            {{ cruntNum }}
+            {{ prevNum }} {{ operation }} {{ cruntNum }}
           </h1>
           <h1
             v-else

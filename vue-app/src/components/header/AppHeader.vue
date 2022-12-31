@@ -32,7 +32,7 @@ let isUser = (item: { path: string; name: string }) => {
       router.push({ name: "home" });
     }
   } else router.push(item.path);
-  smHeader.value = false
+  smHeader.value = false;
 };
 </script>
 <template>
@@ -49,33 +49,42 @@ let isUser = (item: { path: string; name: string }) => {
           class="text-white pb-1 px-2 text-xl hover:border-x"
         >
           {{ item.name }}
-      </button>
+        </button>
       </nav>
       <div>
-        <button
-          v-if="!store.isLogedIn"
-          class="border rounded h-8 w-20 my-1 bg-slate-200 hover:bg-indigo-300 hover:text-lg"
+        <div
           @click="store.openLoginModal"
+          v-if="!store.isLogedIn"
+          class="hove:border rounded text-indigo-400 hover:text-black hover:bg-white hover:text-lg mt-2 px-2"
         >
-          Sign In
-        </button>
-        <button
-          v-else
-          class="border rounded h-8 w-20 my-1 bg-slate-200 hover:bg-indigo-300 hover:text-lg"
+          <button class="">Sign In</button>
+          <font-awesome-icon icon="far fa-user-circle" size="lg" class="pl-1 text-black " />
+        </div>
+        <div
           @click="logOut"
+          v-else
+          class="hove:border rounded hover:bg-white hover:text-lg mt-2 px-2"
         >
-          Log out
-        </button>
+          <button class="text-indigo-400">Log out</button>
+          <font-awesome-icon icon="fas fa-user-circle" size="lg" class="pl-1" />
+        </div>
       </div>
     </div>
     <div class="p-2 lg:hidden md:hidden sm:hidden flex">
       <Button
-      @click="smHeader = true"
+        @click="smHeader = true"
         class="border px-2 rounded bg-slate-200 hover:bg-indigo-300 hover:text-lg"
       >
-        nav
+        <font-awesome-icon icon="fas fa-list  " />
       </Button>
     </div>
   </header>
-  <component v-if="smHeader" :is="HeaderModal" :navList="navList" @isUser="isUser" @logOut="logOut" @closeModal="smHeader= false"></component> 
-  </template>
+  <component
+    v-if="smHeader"
+    :is="HeaderModal"
+    :navList="navList"
+    @isUser="isUser"
+    @logOut="logOut"
+    @closeModal="smHeader = false"
+  ></component>
+</template>

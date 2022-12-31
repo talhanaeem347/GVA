@@ -9,7 +9,9 @@ let textarea = ref<HTMLInputElement>();
 let message = ref<string>("");
 let newLine = () => (message.value += "\n");
 let send = () => {
-  if (message.value) {
+  if (message.value === "" || message.value === "\n") {
+    showBtn.value = false;
+  } else {
     const newChatRef = push(chatsRef);
     set(newChatRef, {
       from: store.getUser.userId,
@@ -20,6 +22,7 @@ let send = () => {
     });
     message.value = "";
   }
+  showBtn.value = false;
 };
 
 let showBtn = ref(false);
@@ -30,19 +33,17 @@ const vMyDirective = {
 };
 </script>
 <template>
-  <div v-my-directive class="w-96 flex border flex-col items-center justify-center">
-    <div class="border w-full ">
-      <div
-        class="lg:w-52 pb-1 h-10 max-h-24 flex flex-col  justify-end overflow-auto"
-      >
+  <div v-my-directive class="flex w-fit justify-center">
+    <div class="w-fit">
+      <div class="pb-1 h-10 max-h-24 flex flex-col justify-end overflow-auto">
         <pre
           v-if="message"
           :class="message ? 'opacity-100' : 'opacity-0'"
-          class="z-30 text-sm shadow w-44 text-ellipsis h-fit"
+          class="absolute z-30 bg-green-100 text-sm px-2 shadow w-44 text-ellipsis h-fit"
           >{{ message }} </pre
         >
       </div>
-      <div class="border-2 flex rounded-r-full overflow-auto">
+      <div class="flex w-fit bg-green-50 rounded-full">
         <textarea
           type="text"
           @keyup="message ? (showBtn = true) : (showBtn = false)"
@@ -51,14 +52,18 @@ const vMyDirective = {
           placeholder="Write your messaqge"
           v-model="message"
           ref="textarea"
-          class="h-6 flex items-start w-44 px-2"
+          class="h-6 pb-1 flex items-start px-2 bg-green-50"
         ></textarea>
         <button
           @click="send"
           :disabled="!showBtn"
-          class="border-l px-2 disabled:bg-gray-100 disabled:text-gray-400 rounded-r-full"
+          class="border-l px-2 disabled:opacity-50 disabled:text-gray-400 rounded-r-full"
         >
-          send
+          <font-awesome-icon
+            icon="fa-solid fa-paper-plane"
+            style="rotate: 40deg"
+            />
+            <!-- size="lg" -->
         </button>
       </div>
     </div>

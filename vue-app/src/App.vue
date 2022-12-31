@@ -29,10 +29,10 @@ const vMyDirective = {
 };
 </script>
 <template>
-  <div v-my-directive class="h-screen bg-zinc-300">
-    <component :is="AppHeader"> </component>
-    <router-view></router-view>
-    <teleport to="body">
+  <div v-my-directive class="h-screen bg-zinc-300 ">
+  <component :is="AppHeader"> </component>
+      <router-view></router-view>
+      <teleport to="body">
       <component :is="UseModal"></component>
     </teleport>
   </div>

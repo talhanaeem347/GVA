@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { onChildAdded, onValue } from "@firebase/database";
+import { onChildAdded } from "@firebase/database";
 import { ref } from "vue";
 import { chatsRef } from "@/utilites/firebase/firbase";
 import useStore from "@/store/pinia";
 const store = useStore();
-// const uid = ref(store.getUserId())
 let chats = ref<
   Array<{
     name: string;
@@ -16,15 +15,9 @@ let chats = ref<
 >([]);
 const vMyDirective = {
   mounted: async () => {
-    // onValue(chatsRef, (snapshoot) => {
-    //   chats.value = snapshoot.val();
-    //  });
-    onChildAdded(chatsRef, (data) => {
-      // console.log(data.val());
-      
+    onChildAdded(chatsRef, (data) => {      
       chats.value.push(data.val());
-      
-    });
+    });    
   },
 };
 </script>
@@ -41,7 +34,7 @@ const vMyDirective = {
         :class="
           chat.from == store.getUser.userId
             ? 'rounded-bl-none items-start bg-green-200 '
-            : 'rounded-br-none items-end bg-gray-200'
+            : 'rounded-br-none items-end bg-blue-300'
         "
       >
         <small class="text-xs underline italic">{{ chat.name }}</small>
