@@ -30,8 +30,14 @@ const vMyDirective = {
 </script>
 <template>
   <div v-my-directive class="h-screen bg-zinc-300 ">
-  <component :is="AppHeader"> </component>
+    <div class="fixed z-40 w-full" >
+
+      <component   :is="AppHeader"> </component>
+    </div>
+    <div class="absolute inset-0 pt-16 pb-5">
+
       <router-view></router-view>
+    </div>
       <teleport to="body">
       <component :is="UseModal"></component>
     </teleport>

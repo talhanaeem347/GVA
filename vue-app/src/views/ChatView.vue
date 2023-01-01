@@ -9,17 +9,17 @@ const vMyDirective = {
 };
 </script>
 <template>
-  <section v-my-directive class="mt-5 h-full">
-    <div class="w-1/2 mx-auto h-3/4 border-8 rounded-2xl">
-      <h1 class="text-3xl text-center font-bold my-3">Chate</h1>
+  <section v-my-directive class="lg:mt-5 md:mt-5 h-full">
+    <div class="lg:w-1/2 md:w-1/2 w-full mx-auto lg:h-5/6 h-full  lg:border-8 md:border-8 rounded-2xl">
+      <h1 class="text-3xl justify-center font-bold my-3 lg:flex md:flex hidden ">Chat</h1>
       <div
-        class="border-2 w-3/4 h-5/6 mx-auto p-2 flex flex-col justify-between rounded-xl bg-white"
+        class=" lg:w-3/4 md:w-3/4 w-full h-5/6 mx-auto p-2 flex flex-col justify-between rounded-xl bg-white"
       >
         <div class="h-5/6 overflow-auto">
           <component :is="Messages"></component>
         </div>
 
-        <div class="mx-auto -mb-5">
+        <div class="mx-auto -mb-5 w-fit " >
           <component :is="SendMessage" class=" "></component>
         </div>
       </div>

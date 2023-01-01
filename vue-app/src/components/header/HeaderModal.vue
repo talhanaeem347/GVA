@@ -16,16 +16,19 @@ const props = defineProps<{
       @click="emit('closeModal')"
       class="fixed inset-0 w-screen h-screen opacity-50 bg-gray-100 z-10"
     ></section>
-    <div class="absolute right-0 z-20 w-40 top-0 h-full" >
-      <div class="px-12 py-3 w-full flex justify-end bg-indigo-400">
-        <Button
+    <div class="absolute right-0 z-30 w-40 top-0 h-full ">
+      <div class=" rounded-bl-md   bg-indigo-400">
+      <div class="px-4 py-3 w-full flex justify-end">
+        <button
           @click="emit('closeModal')"
-          class="border px-2 rounded bg-slate-200 hover:bg-indigo-300 hover:text-lg"
+          class="border-2 px-2 rounded bg-slate-200 border-black hover:bg-indigo-300 hover:text-lg"
         >
-          nav
-        </Button>
+          <font-awesome-icon icon="fas fa-bars" class="" />
+        </button>
       </div>
-      <nav class="absolute right-0 w-40 flex flex-col h-fit bg-indigo-400 items-start rounded-bl-md ">
+      <nav
+        class="relative right-0 w-40 flex flex-col h-fit items-start rounded-bl-md"
+      >
         <button
           v-for="item in props.navList"
           :key="item.name"
@@ -51,6 +54,7 @@ const props = defineProps<{
           </button>
         </div>
       </nav>
+    </div>
     </div>
   </div>
 </template>

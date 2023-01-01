@@ -2,7 +2,7 @@
 import useStore from "@/store/pinia";
 import Modal from "@/components/Modal.vue";
 import SignUp from "@/components/userCrud/SignUp.vue";
-import Google from "@/components/userCrud/Google.vue";
+import Google from "@/components/userCrud/GoogleSignup.vue";
 import { ref } from "vue";
 const store = useStore();
 let isSignUpModalOpen = ref(false)

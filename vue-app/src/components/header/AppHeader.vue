@@ -36,11 +36,11 @@ let isUser = (item: { path: string; name: string }) => {
 };
 </script>
 <template>
-  <header class="bg-indigo-400 flex justify-between px-10 py-1">
-    <div class="border rounded-full">
-      <img src="" alt=" logo" />
+  <header class="bg-indigo-400 flex justify-between flex-wrap lg:px-10 px-2 py-1">
+    <div class=" lg:w-1/12 md:w-1/12 w-1/3">
+      <img src="@/assets/logo.png" alt=" logo" class="border  w-20 h-10" />
     </div>
-    <div class="w-4/5 lg:flex md:flex sm:flex hidden justify-between">
+    <div class="lg:flex md:flex hidden justify-between">
       <nav class="my-1">
         <button
           v-for="item in navList"
@@ -63,19 +63,19 @@ let isUser = (item: { path: string; name: string }) => {
         <div
           @click="logOut"
           v-else
-          class="hove:border rounded hover:bg-white hover:text-lg mt-2 px-2"
+          class="hove:border rounded text-indigo-400 hover:text-black hover:bg-white hover:text-lg mt-2 px-2"
         >
-          <button class="text-indigo-400">Log out</button>
-          <font-awesome-icon icon="fas fa-user-circle" size="lg" class="pl-1" />
+          <button class=" ">Log out</button>
+          <font-awesome-icon icon="fas fa-user-circle" size="lg" class="pl-1 text-black" />
         </div>
       </div>
     </div>
-    <div class="p-2 lg:hidden md:hidden sm:hidden flex">
+    <div class="p-2 lg:hidden md:hidden  flex">
       <Button
         @click="smHeader = true"
-        class="border px-2 rounded bg-slate-200 hover:bg-indigo-300 hover:text-lg"
+        class="border-2 border-black  px-2  rounded bg-slate-200 hover:bg-indigo-300 hover:text-lg"
       >
-        <font-awesome-icon icon="fas fa-list  " />
+        <font-awesome-icon icon="fas fa-bars  " />
       </Button>
     </div>
   </header>

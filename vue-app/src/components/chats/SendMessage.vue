@@ -44,7 +44,7 @@ const vMyDirective = {
         >
       </div>
       <div class="flex w-fit bg-green-50 rounded-full">
-        <textarea
+        <input
           type="text"
           @keyup="message ? (showBtn = true) : (showBtn = false)"
           @keyup.insert="newLine"
@@ -52,18 +52,18 @@ const vMyDirective = {
           placeholder="Write your messaqge"
           v-model="message"
           ref="textarea"
-          class="h-6 pb-1 flex items-start px-2 bg-green-50"
-        ></textarea>
+          class="text-xl h-10 pb-2 pt-1 flex items-start px-2 bg-green-50"
+        />
         <button
           @click="send"
           :disabled="!showBtn"
-          class="border-l px-2 disabled:opacity-50 disabled:text-gray-400 rounded-r-full"
+          class="border-l pr-2 pb-1 disabled:opacity-50 disabled:text-gray-400 rounded-r-full"
         >
           <font-awesome-icon
             icon="fa-solid fa-paper-plane"
-            style="rotate: 40deg"
+            style="rotate: 45deg"
+            size="2xl"
             />
-            <!-- size="lg" -->
         </button>
       </div>
     </div>

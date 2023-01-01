@@ -13,7 +13,7 @@ let logInWithGoogle = () => {
       @click="logInWithGoogle"
       class="text-center border w-fit px-2 rounded-md my-4 pb-1 bg-gray-100 hover:text-blue-400"
     >
-      Continue In With Google
+      Continue With Google
       <span class="text-xl text-blue-500 italic font-extrabold">G</span>
     </button>
   </section>

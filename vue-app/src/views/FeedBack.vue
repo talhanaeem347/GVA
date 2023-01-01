@@ -28,16 +28,16 @@ const vMyDirective = {
 </script>
 <template>
   <div v-my-directive class="w-full h-max mt-5">
-    <div class="w-1/2 mx-auto border mt-10 bg-violet-100 rounded-lg">
+    <div class="lg:w-1/2 md:w1/2 sm:w-2/3 w-full mx-auto border mt-10 bg-violet-100 rounded-lg">
       <div>
         <h1 class="text-3xl font-bold text-center p-3">
           Feel free for
           <span class="text-4xl block text-center">SUGGESTION </span>
         </h1>
       </div>
-      <div class="flex">
-        <div class="w-1/2 p-2">
-          <div class="px-4 py-1"><label for="name">Name</label></div>
+      <div class="flex flex-col lg:flex-row md:flex-row sm:flex-row">
+        <div class="lg:w-1/2 md:w-1/2 sm:1/2  p-2">
+          <div class="px-4 py-1 text-lg font-medium"><label for="name">Name :</label></div>
           <div class="px-2">
             <input
               type="text"
@@ -49,8 +49,8 @@ const vMyDirective = {
             />
           </div>
         </div>
-        <div class="w-1/2 p-2">
-          <div class="px-4 py-1"><label for="email">Email</label></div>
+        <div class="lg:w-1/2 md:w-1/2 sm:1/2 p-2">
+          <div class="px-4 py-1 text-lg font-medium"><label for="email">E-mail :</label></div>
           <div class="px-2">
             <input
               type="email"
@@ -63,7 +63,7 @@ const vMyDirective = {
         </div>
       </div>
       <div class="p-2">
-        <div class="px-4 py-1"><label for="message">Message</label></div>
+        <div class="px-4 py-1 text-lg font-medium"><label for="message">Message :</label></div>
         <div class="px-2">
           <textarea
             id="message"
@@ -73,12 +73,12 @@ const vMyDirective = {
           ></textarea>
         </div>
       </div>
-      <div class="flex justify-end px-10 py-5">
+      <div class="flex justify-end px-10 py-5 -mt-5">
         <button
           @click="submit"
           class="border px-5 pb-1 rounded text-lg bg-indigo-400 hover:bg-indigo-500 active:bg-slate-600 text-white"
         >
-          submit
+          Submit
         </button>
       </div>
     </div>
