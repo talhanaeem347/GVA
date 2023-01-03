@@ -36,7 +36,7 @@ const emit = defineEmits<{
                   class="flex justify-between  px-2"
                 >
                   <p class="text-lg text-center italic">
-                    create a new Account?
+                    Create a new Account?
                   </p>
                   <button
                     @click=" emit('signUp')"

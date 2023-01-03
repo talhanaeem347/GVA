@@ -30,7 +30,7 @@ const vMyDirective = {
 </script>
 <template>
   <div v-my-directive class="h-screen bg-zinc-300 ">
-    <div class="fixed z-40 w-full" >
+    <div class="fixed z-10 w-full" >
 
       <component   :is="AppHeader"> </component>
     </div>

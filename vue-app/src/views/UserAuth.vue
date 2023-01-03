@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import useStore from "@/store/pinia";
-import Modal from "@/components/Modal.vue";
+import Modal from "@/components/ReuseableModal.vue";
 import SignUp from "@/components/userCrud/SignUp.vue";
 import Google from "@/components/userCrud/GoogleSignup.vue";
 import { ref } from "vue";

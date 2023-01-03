@@ -1,25 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { format } from "date-fns";
-import { push, set } from "firebase/database";
-import { feedbackRef } from "@/utilites/firebase/firbase";
+import {sendFeedback} from '@/controler/userCrud/dbConnection'
+// import { format } from "date-fns";
+// import { push, set } from "firebase/database";
+// import { feedbackRef } from "@/utilites/firebase/firbase";
 let name = ref("");
 let email = ref("");
 let message = ref("");
 let input = ref();
 let submit = () => {
-  if (message.value) {
-    const newRef = push(feedbackRef);
-    set(newRef, {
-      name: name.value,
-      body: message.value,
-      time: format(new Date(), "hh:mm"),
-      date: format(new Date(), "MM/dd/yy"),
-    });
-    message.value = "";
-  }
+  sendFeedback(name.value,email.value,message.value);
 };
-
 const vMyDirective = {
   mounted: () => {
     input.value.focus();
@@ -76,7 +67,8 @@ const vMyDirective = {
       <div class="flex justify-end px-10 py-5 -mt-5">
         <button
           @click="submit"
-          class="border px-5 pb-1 rounded text-lg bg-indigo-400 hover:bg-indigo-500 active:bg-slate-600 text-white"
+          :disabled="!message || !email || !name"
+          class="border px-5 pb-1 rounded text-lg bg-indigo-400 hover:bg-indigo-500 active:bg-slate-600 text-white disabled:text-indigo-400"
         >
           Submit
         </button>

@@ -1,28 +1,18 @@
 <script setup lang="ts">
-import { chatsRef } from "@/utilites/firebase/firbase";
-import { push, set } from "firebase/database";
 import useStore from "@/store/pinia";
-import { format } from "date-fns";
 import { ref } from "vue";
+import { isEmpty } from "@/controler/utilities/validator";
+import { sendMessage } from "@/controler/userCrud/dbConnection";
 const store = useStore();
 let textarea = ref<HTMLInputElement>();
 let message = ref<string>("");
-let newLine = () => (message.value += "\n");
 let send = () => {
-  if (message.value === "" || message.value === "\n") {
-    showBtn.value = false;
-  } else {
-    const newChatRef = push(chatsRef);
-    set(newChatRef, {
-      from: store.getUser.userId,
-      name: store.getUser.userName,
-      body: message.value,
-      time: format(new Date(), "hh:mm"),
-      date: format(new Date(), "MM/dd/yy"),
-    });
+  if (isEmpty(message.value)) showBtn.value = false;
+  else {
+    sendMessage(message.value, store.getUser.userId, store.getUser.userName);
     message.value = "";
+    showBtn.value = false;
   }
-  showBtn.value = false;
 };
 
 let showBtn = ref(false);
@@ -45,10 +35,9 @@ const vMyDirective = {
       </div>
       <div class="flex w-fit bg-green-50 rounded-full">
         <input
-          type="text"
-          @keyup="message ? (showBtn = true) : (showBtn = false)"
-          @keyup.insert="newLine"
+          @keyup="message.length ? (showBtn = true) : (showBtn = false)"
           @keyup.enter="send"
+          type="text"
           placeholder="Write your messaqge"
           v-model="message"
           ref="textarea"
@@ -63,7 +52,7 @@ const vMyDirective = {
             icon="fa-solid fa-paper-plane"
             style="rotate: 45deg"
             size="2xl"
-            />
+          />
         </button>
       </div>
     </div>

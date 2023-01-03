@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import useStore from "@/store/pinia";
 import { ref } from "vue";
-import { update } from "@/utilites/firebase/firbase";
+import { update } from "@/controler/userCrud/dbConnection";
 
 const store = useStore();
 const user = store.getUser;

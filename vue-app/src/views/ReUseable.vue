@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Model from "@/components/Modal.vue";
+import Model from "@/components/ReuseableModal.vue";
 let isFirstModel = ref<boolean>(false);
 let isSecModel = ref<boolean>(false);
 let closeFirstModal = () => (isFirstModel.value = false);

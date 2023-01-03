@@ -71,12 +71,12 @@ let isUser = (item: { path: string; name: string }) => {
       </div>
     </div>
     <div class="p-2 lg:hidden md:hidden  flex">
-      <Button
+      <button
         @click="smHeader = true"
         class="border-2 border-black  px-2  rounded bg-slate-200 hover:bg-indigo-300 hover:text-lg"
       >
-        <font-awesome-icon icon="fas fa-bars  " />
-      </Button>
+          <font-awesome-icon icon="fas fa-bars  " />
+      </button>
     </div>
   </header>
   <component
