@@ -17,12 +17,13 @@ let logOut = () => {
 };
 let navList = ref([
   { path: "/", name: "Home" },
-  { path: "/Calculator", name: "Calculator" },
+  { path: "/calculator", name: "Calculator" },
+  { path: "/calander", name: "Calander" },
   { path: "/marke-down", name: "Marke Down" },
   { path: "/reuseable-modal", name: "Slot" },
   { path: "/chat", name: "Chat" },
   { path: "/profile", name: "Profile" },
-  { path: "/feed-back", name: "Feedback" },
+  { path: "/feed-back", name: "Suggestion" },
 ]);
 let isUser = (item: { path: string; name: string }) => {
   if (item.name == "Chat" || item.name == "Profile") {

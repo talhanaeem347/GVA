@@ -9,8 +9,13 @@ export default createRouter({
     },
     {
       name: "calculator",
-      path: "/calculator",
+      path: "/calculator",  
       component: () => import("@/views/CalculatorView.vue"),
+    },
+    {
+      name: "calander",
+      path: "/calander",
+      component: () => import("@/views/CalanderView.vue"),
     },
     {
       name: "marked",
@@ -36,6 +41,11 @@ export default createRouter({
       name: "feed-back",
       path: "/feed-back",
       component: () => import("@/views/FeedBack.vue"),
+    },
+    {
+      name: "game",
+      path: "/game",
+      component: () => import("@/views/GameView.vue"),
     },
   ],
 });

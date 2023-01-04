@@ -34,7 +34,7 @@ const vMyDirective = {
 
       <component   :is="AppHeader"> </component>
     </div>
-    <div class="absolute inset-0 pt-16 pb-5">
+    <div class="absolute inset-0 pt-12 pb-5">
 
       <router-view></router-view>
     </div>
