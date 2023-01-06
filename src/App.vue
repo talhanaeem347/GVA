@@ -41,7 +41,7 @@ const vMyDirective = {
     <teleport to="body">
       <component :is="UseModal"></component>
     </teleport>
-    <div class="fixed bottom-0 z-10  h-16 overflow-auto  w-full">
+    <div class="fixed bottom-0 z-10 bg bg-yellow-100 h-16 overflow-auto  w-full">
       <component :is="AppFooter"> </component>
     </div>
   </div>
