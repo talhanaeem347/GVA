@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onAuthStateChanged } from "@firebase/auth";
 import AppHeader from "@/components/header/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
 import { auth } from "@/utilites/firebase/firbase";
 import useStore from "@/store/pinia";
 import UseModal from "@/views/UserAuth.vue";
@@ -29,17 +30,19 @@ const vMyDirective = {
 };
 </script>
 <template>
-  <div v-my-directive class="h-screen bg-zinc-300 ">
-    <div class="fixed z-10 w-full" >
-
-      <component   :is="AppHeader"> </component>
+  <div v-my-directive class="h-screen bg-zinc-300">
+    <div class="fixed z-10 w-full">
+      <component :is="AppHeader"> </component>
     </div>
     <div class="absolute inset-0 pt-12 pb-5">
-
       <router-view></router-view>
     </div>
-      <teleport to="body">
+
+    <teleport to="body">
       <component :is="UseModal"></component>
     </teleport>
+    <div class="fixed bottom-0 z-10  h-16 overflow-auto  w-full">
+      <component :is="AppFooter"> </component>
+    </div>
   </div>
 </template>

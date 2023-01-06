@@ -23,7 +23,6 @@ let navList = ref([
   { path: "/reuseable-modal", name: "Slot" },
   { path: "/chat", name: "Chat" },
   { path: "/profile", name: "Profile" },
-  { path: "/feed-back", name: "Suggestion" },
 ]);
 let isUser = (item: { path: string; name: string }) => {
   if (item.name == "Chat" || item.name == "Profile") {
@@ -37,29 +36,37 @@ let isUser = (item: { path: string; name: string }) => {
 };
 </script>
 <template>
-  <header class="bg-indigo-400 flex justify-between flex-wrap lg:px-10 px-2 py-1">
-    <div class=" lg:w-1/12 md:w-1/12 w-1/3">
-      <img src="@/assets/logo.png" alt=" logo" class="border  w-20 h-10" />
-    </div>
-    <div class="lg:flex md:flex hidden justify-between">
-      <nav class="my-1">
-        <button
-          v-for="item in navList"
-          :key="item.name"
-          @click="isUser(item)"
-          class="text-white pb-1 px-2 text-xl hover:border-x"
-        >
-          {{ item.name }}
-        </button>
-      </nav>
-      <div>
+  <header
+    class="bg-indigo-400 flex justify-between flex-wrap lg:px-10 px-2 py-1"
+  >
+    <div class="flex flex-wrap justify-between w-full">
+      <div class="w-fit">
+        <img src="@/assets/logo.png" alt=" logo" class="border w-20 h-10" />
+      </div>
+      <div class=" w-fit lg:flex md:flex hidden">
+        <nav class="my-1">
+          <button
+            v-for="item in navList"
+            :key="item.name"
+            @click="isUser(item)"
+            class="text-white pb-1 px-2 text-xl hover:border-x"
+          >
+            {{ item.name }}
+          </button>
+        </nav>
+      </div>
+      <div class="lg:flex md:flex hidden">
         <div
           @click="store.openLoginModal"
           v-if="!store.isLogedIn"
           class="hove:border rounded text-indigo-400 hover:text-black hover:bg-white hover:text-lg mt-2 px-2"
         >
           <button class="">Sign In</button>
-          <font-awesome-icon icon="far fa-user-circle" size="lg" class="pl-1 text-black " />
+          <font-awesome-icon
+            icon="far fa-user-circle"
+            size="lg"
+            class="pl-1 text-black"
+          />
         </div>
         <div
           @click="logOut"
@@ -67,18 +74,23 @@ let isUser = (item: { path: string; name: string }) => {
           class="hove:border rounded text-indigo-400 hover:text-black hover:bg-white hover:text-lg mt-2 px-2"
         >
           <button class=" ">Log out</button>
-          <font-awesome-icon icon="fas fa-user-circle" size="lg" class="pl-1 text-black" />
+          <font-awesome-icon
+            icon="fas fa-user-circle"
+            size="lg"
+            class="pl-1 text-black"
+          />
         </div>
       </div>
-    </div>
-    <div class="p-2 lg:hidden md:hidden  flex">
+    <div class="p-2 lg:hidden md:hidden flex">
       <button
         @click="smHeader = true"
-        class="border-2 border-black  px-2  rounded bg-slate-200 hover:bg-indigo-300 hover:text-lg"
+        class="border-2 border-black px-2 rounded bg-slate-200 hover:bg-indigo-300 hover:text-lg"
       >
-          <font-awesome-icon icon="fas fa-bars  " />
+        <font-awesome-icon icon="fas fa-bars  " />
       </button>
     </div>
+  </div>
+
   </header>
   <component
     v-if="smHeader"

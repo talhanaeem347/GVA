@@ -38,8 +38,8 @@ export default createRouter({
       component: () => import("@/views/UserProfile.vue"),
     },
     {
-      name: "feed-back",
-      path: "/feed-back",
+      name: "feedback",
+      path: "/feedback",
       component: () => import("@/views/FeedBack.vue"),
     },
     {
