@@ -38,7 +38,7 @@ const vMyDirective = {
           @keyup="message.length ? (showBtn = true) : (showBtn = false)"
           @keyup.enter="send"
           type="text"
-          placeholder="Write your messaqge"
+          placeholder="Write your message"
           v-model="message"
           ref="textarea"
           class="text-xl h-10 pb-2 pt-1 flex items-start px-2 bg-green-50"
