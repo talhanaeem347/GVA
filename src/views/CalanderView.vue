@@ -5,7 +5,7 @@ let date = ref(new Date().getDate());
 let month = ref<number>(new Date().getMonth());
 let year = ref<number>(new Date().getFullYear());
 let bgChange = ref(false)
-let timer = ref(0);
+let timer = ref<number>(0);
 let startDayOfCurrentMonth = () =>
   new Date(year.value, month.value, 1).getDay();
 let daysInCurrentMonth = () => new Date(year.value, month.value, 0).getDate();
@@ -26,7 +26,7 @@ let monthName = computed(() =>
 );
 const vMyDirective = {
   mounted:()=>{
-   timer.value = setInterval(()=>bgChange.value = !bgChange.value,500)   
+    setInterval(()=>bgChange.value = !bgChange.value,500)   
   },
   unmounted:()=> {
     clearInterval(timer.value);

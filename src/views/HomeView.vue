@@ -2,12 +2,12 @@
 import { ref } from 'vue';
 
 let show = ref(true)
-let timer = ref(0)
+let timer = ref<number>(0)
 const vMyDirective = {
-  mounted  () {
- timer.value = setInterval(()=>show.value=!show.value,500)        
+  mounted : ()=> {
+ setInterval(()=>show.value=!show.value,500)        
   },
-  unmounted() {
+  unmounted:()=> {
     clearInterval(timer.value)
   },
 };
