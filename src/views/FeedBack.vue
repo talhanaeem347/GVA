@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import {sendFeedback} from '@/controler/userCrud/dbConnection'
-// import { format } from "date-fns";
-// import { push, set } from "firebase/database";
-// import { feedbackRef } from "@/utilites/firebase/firbase";
+import { sendFeedback } from '@/controler/userCrud/dbConnection'
 let name = ref("");
 let email = ref("");
 let message = ref("");
 let input = ref();
+let err = ref(true);
 let submit = () => {
-  sendFeedback(name.value,email.value,message.value);
+  err.value = !sendFeedback(name.value, email.value, message.value);
+  if (err.value)
+    return
+  name.value = "";
+  email.value = "";
+  message.value = "";
+
 };
 const vMyDirective = {
   mounted: () => {
@@ -28,48 +32,33 @@ const vMyDirective = {
       </div>
       <div class="flex flex-col lg:flex-row md:flex-row sm:flex-row">
         <div class="lg:w-1/2 md:w-1/2 sm:1/2  p-2">
-          <div class="px-4 py-1 text-lg font-medium"><label for="name">Name :</label></div>
+          <div class="px-4 py-1 text-lg font-medium" :class="err ? 'text-red-700' : ''"><label for="name"><sup
+                v-if="err" class="text-xs"><font-awesome-icon icon="fas fa-star" size="xs" /></sup>Name :</label></div>
           <div class="px-2">
-            <input
-              type="text"
-              id="name"
-              placeholder="Enter you'r Name"
-              ref="input"
-              v-model="name"
-              class="w-full bg-gray-100 px-2 py-1 rounded-md focus:bg-white"
-            />
+            <input type="text" id="name" placeholder="Enter you'r Name" ref="input" v-model="name"
+              class="w-full bg-gray-100 px-2 py-1 rounded-md focus:bg-white" />
           </div>
         </div>
-        <div class="lg:w-1/2 md:w-1/2 sm:1/2 p-2">
-          <div class="px-4 py-1 text-lg font-medium"><label for="email">E-mail :</label></div>
+        <div class="lg:w-1/2 md:w-1/2 sm:1/2 p-2" :class="err ? 'text-red-700' : ''">
+          <div class="px-4 py-1 text-lg font-medium"><label for="email"><sup v-if="err"
+                class="text-xs"><font-awesome-icon icon="fas fa-star" size="xs" /></sup>E-mail :</label></div>
           <div class="px-2">
-            <input
-              type="email"
-              id="email"
-              placeholder="someone@example.com"
-              v-model="email"
-              class="w-full bg-gray-100 px-2 py-1 rounded-md focus:bg-white"
-            />
+            <input type="email" id="email" placeholder="someone@example.com" v-model="email"
+              class="w-full bg-gray-100 px-2 py-1 rounded-md focus:bg-white" />
           </div>
         </div>
       </div>
       <div class="p-2">
-        <div class="px-4 py-1 text-lg font-medium"><label for="message">Message :</label></div>
+        <div class="px-4 py-1 text-lg font-medium" :class="err ? 'text-red-700' : ''"><label for="message"><sup
+              v-if="err" class="text-xs"><font-awesome-icon icon="fas fa-star" size="xs" /></sup>Message :</label></div>
         <div class="px-2">
-          <textarea
-            id="message"
-            placeholder="Suggest here !"
-            v-model="message"
-            class="w-full h-28 bg-gray-100 px-2 py-1 rounded-md focus:bg-white"
-          ></textarea>
+          <textarea id="message" placeholder="Suggest here !" v-model="message"
+            class="w-full h-28 bg-gray-100 px-2 py-1 rounded-md focus:bg-white"></textarea>
         </div>
       </div>
       <div class="flex justify-end px-10 py-5 -mt-5">
-        <button
-          @click="submit"
-          :disabled="!message || !email || !name"
-          class="border px-5 pb-1 rounded text-lg bg-indigo-400 hover:bg-indigo-500 active:bg-slate-600 text-white disabled:text-indigo-400"
-        >
+        <button @click="submit" :disabled="!message || !email || !name"
+          class="border px-5 pb-1 rounded text-lg bg-indigo-400 hover:bg-indigo-500 active:bg-slate-600 text-white disabled:text-indigo-400">
           Submit
         </button>
       </div>
