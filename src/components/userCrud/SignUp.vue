@@ -74,7 +74,7 @@ let submit = () => {
       </div>
       <div class="shadow-lg mb-4 rounded-lg px-2">
         <label
-          for="password"
+          for="cPassword"
           class="text-xl"
           :class="passwordErr ? 'text-red-700' : ''"
         >
@@ -85,7 +85,7 @@ let submit = () => {
         >
         <input
           type="password"
-          id="password"
+          id="cPassword"
           placeholder="Password@123"
           v-model="cPassword"
           class="text-xl w-full pb-1 px-2"
