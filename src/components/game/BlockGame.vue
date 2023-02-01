@@ -24,7 +24,7 @@ let select = (country: string) => emit("end", country);
               src="https://i.pinimg.com/originals/10/19/81/101981fadfbcafbbc7acb9b3feabb955.png"
             />
             <div
-              class="relative z-10 w-full border-4 border-gray-200 flex justify-center items-end lg:opacity-0 md:opacity-0 hover:opacity-100 cursor-pointer"
+              class="relative w-full border-2 border-gray-200 flex justify-center items-end lg:opacity-0 md:opacity-0 hover:opacity-100 cursor-pointer"
             >
               <h1
                 class="title-font text-lg font-medium text-gray-900 mb-3 bg-green-50 h-fit rounded-2xl px-2 pb-1"
@@ -45,7 +45,7 @@ let select = (country: string) => emit("end", country);
               src="https://c8.alamy.com/zooms/9/0e502161bfbe4d3fb7b2d62cdd46b217/dwdjpt.jpg"
             />
             <div
-              class="relative z-10 w-full border-4 border-gray-200 flex justify-center items-end lg:opacity-0 md:opacity-0 hover:opacity-100 cursor-pointer"
+              class="relative w-full border-2 border-gray-200 flex justify-center items-end lg:opacity-0 md:opacity-0 hover:opacity-100 cursor-pointer"
             >
               <h1
                 class="title-font text-lg font-medium text-gray-900 mb-3 bg-green-50 h-fit rounded-2xl px-2 pb-1"
@@ -66,7 +66,7 @@ let select = (country: string) => emit("end", country);
               src="https://static.vecteezy.com/system/resources/thumbnails/008/040/674/original/realistic-3d-rendering-looping-saudi-arabia-flag-animation-background-free-video.jpg"
             />
             <div
-              class="relative z-10 w-full border-4 border-gray-200 flex justify-center items-end lg:opacity-0 md:opacity-0 hover:opacity-100 cursor-pointer"
+              class="relative w-full border-2 border-gray-200 flex justify-center items-end lg:opacity-0 md:opacity-0 hover:opacity-100 cursor-pointer"
             >
               <h1
                 class="title-font text-lg font-medium text-gray-900 mb-3 bg-green-50 h-fit rounded-2xl px-2 pb-1"

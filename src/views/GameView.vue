@@ -20,6 +20,11 @@ let endGame = (contryName: string) => {
   showBtn.value = true;
 
 }
+let abortGame = () =>{
+  isPlaing.value = false;
+  showBtn.value = true;
+  showResult.value = false;
+}
 </script>
 <template>
 <section class=" w-full h-full lg:p-10 md:p-10 p-2">
@@ -28,8 +33,10 @@ let endGame = (contryName: string) => {
             <h1 class="text-3xl text-center font-bold p-2 ">Knowledge test</h1>
             <p class="text-xl text-center font-semibold pb-4">We show a city name and you have to select a country related </p>
         </div>
-        <button @click="startGame" :disabled="!showBtn"
-        class="border rounded flex justify-center w-20 pb-1 bg-indigo-500 hover:bg-indigo-600  mx-auto disabled:bg-gray-100">play</button>
+        <button @click="startGame" v-if="showBtn"
+        class="border rounded flex justify-center px-8 pb-1 bg-indigo-500 hover:bg-indigo-600  mx-auto disabled:bg-gray-100">play</button>
+        <button @click="abortGame" v-else
+        class="border rounded flex justify-center px-4 pb-1 bg-indigo-500 hover:bg-indigo-600  mx-auto disabled:bg-gray-100">End Game</button>
         <component v-if="isPlaing" :is="Block" :index="index" @end="endGame"></component>
         <component v-if="showResult" :is='Result' :item="{ contry, index }"></component>
     </div>

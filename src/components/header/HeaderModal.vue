@@ -16,7 +16,7 @@ const props = defineProps<{
       @click="emit('closeModal')"
       class="fixed inset-0 w-screen h-screen opacity-50 bg-gray-100 z-10"
     ></section>
-    <div class="absolute right-0 z-30 w-40 top-0 h-full ">
+    <div class="absolute right-0 z-40 w-40 top-0 h-full ">
       <div class=" rounded-bl-md   bg-indigo-400">
       <div class="px-4 py-3 w-full flex justify-end">
         <button

@@ -37,7 +37,7 @@ const vMyDirective = {
   <section v-my-directive class="w-full h-full">
 
     <div  class="lg:w-1/2 md:w-1/2 sm:w-2/3 mx-auto my-3 text-xl mt-5">
-      <h1 class="text-3xl font-bold text-center">Calender</h1>
+      <h1 class="text-3xl font-bold text-center text-gray-200">Calender</h1>
     <div class="flex justify-between py-2 px-4 mt-5 bg-indigo-400">
       <h1 class="text-xl text-center font-bold ">
         {{ monthName }}

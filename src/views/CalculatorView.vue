@@ -157,7 +157,7 @@ const vMyDirective = {
   <section v-my-directive class="flex w-full">
     <div class="mx-auto lg:w-1/2 md:w-1/2 w-full flex justify-center">
       <div class="w-full flex flex-col justify-center  mt-8 pb-8">
-        <h1 class="text-3xl text-center font-bold w-full mt-4 mb-6">
+        <h1 class="text-3xl text-center text-gray-200 font-bold w-full mt-4 mb-6">
           Calculator
         </h1>
         <div class="mx-auto p-5 bg-teal-600">

@@ -40,9 +40,9 @@ let isUser = (item: { path: string; name: string }) => {
     class="bg-indigo-400 flex justify-between flex-wrap lg:px-10 px-2 py-1"
   >
     <div class="flex flex-wrap justify-between w-full">
-      <div class="w-fit">
+      <router-link to="/" class="w-fit">
         <img src="@/assets/logo.png" alt=" logo" class="border w-20 h-10" />
-      </div>
+      </router-link>
       <div class=" w-fit lg:flex md:flex hidden">
         <nav class="my-1">
           <button

@@ -41,7 +41,7 @@ const vMyDirective = {
       <router-view></router-view>
       
     </div>
-    <div class=" bg-yellow-100 h-16 overflow-auto  w-full">
+    <div class=" bg-yellow-100  overflow-auto  w-full">
       <component :is="AppFooter"> </component>
     </div>
     <teleport to="body">

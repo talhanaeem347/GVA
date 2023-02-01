@@ -34,7 +34,7 @@ const vMyDirective = {
         </div>
       </div>
 
-      <section class="w-full">
+      <section class="w-full bg-slate-300">
         <div class="flex flex-wrap border-b border-black w-full">
           <div class="w-1/3  text-start py-2 px-2 font-bold">Name :</div>
           <div class="w-1/3  text-start py-2">{{ user.userName }}</div>
