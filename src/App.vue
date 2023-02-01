@@ -30,19 +30,30 @@ const vMyDirective = {
 };
 </script>
 <template>
-  <div v-my-directive class="h-screen bg-zinc-300">
-    <div class="fixed z-10 w-full">
-      <component :is="AppHeader"> </component>
+  <!-- <div v-my-directive class="h-screen bg-zinc-300"> -->
+  <div id="bg" v-my-directive class="h-screen flex flex-col justify-between">
+    <div class="h-12">
+      <div class="fixed z-10 w-full">
+        <component :is="AppHeader"> </component>
+      </div>
     </div>
-    <div class="absolute inset-0 pt-12 pb-5">
+    <div class="h-screen  py-5">
       <router-view></router-view>
+      
     </div>
-
+    <div class=" bg-yellow-100 h-16 overflow-auto  w-full">
+      <component :is="AppFooter"> </component>
+    </div>
     <teleport to="body">
       <component :is="UseModal"></component>
     </teleport>
-    <div class="fixed bottom-0 z-10 bg bg-yellow-100 h-16 overflow-auto  w-full">
-      <component :is="AppFooter"> </component>
-    </div>
   </div>
 </template>
+<style>
+#bg{
+  background-image: url('https://images4.alphacoders.com/153/thumb-1920-153318.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+</style>

@@ -27,7 +27,7 @@ const props = defineProps<{
         </button>
       </div>
       <nav
-        class="relative right-0 w-40 flex flex-col h-fit items-start rounded-bl-md"
+        class="relative z-30 right-0 w-40 flex flex-col h-fit items-start rounded-bl-md"
       >
         <button
           v-for="item in props.navList"
